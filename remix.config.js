@@ -15,4 +15,15 @@ module.exports = {
     v2_normalizeFormMethod: true,
     v2_routeConvention: true,
   },
+  mdx: async (filename) => {
+    const [rehypeKatex, remarkMath] = await Promise.all([
+      import("rehype-katex").then((mod) => mod.default),
+      import("remark-math").then((mod) => mod.default),
+    ]);
+
+    return {
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    };
+  },
 };
