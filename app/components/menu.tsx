@@ -23,6 +23,7 @@ import {
   Bars3Icon,
   PencilIcon,
   XMarkIcon,
+  VariableIcon,
 } from "@heroicons/react/20/solid";
 import { NavLink } from "@remix-run/react";
 
@@ -44,11 +45,12 @@ function classNames(...classes: string[]) {
 const Logo = () => {
   return (
     <div className="flex-shrink-0 flex items-center w-16">
-      <img
+      {/* <img
         className="h-8 w-auto m-auto"
         src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
         alt="Workflow"
-      />
+      /> */}
+      <VariableIcon className="h-8 w-8 mx-auto text-white" />
     </div>
   );
 };
