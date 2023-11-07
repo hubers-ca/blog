@@ -1,4 +1,3 @@
-import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -7,14 +6,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import styles from "./styles.css";
-import { type V2_ErrorBoundaryComponent } from "@remix-run/react/dist/routeModules";
+import { type ErrorBoundaryComponent } from "@remix-run/react/dist/routeModules";
 import Error from "./components/error";
 import Menus from "./components/menu";
+import "./styles.css";
 
-export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
-
-export const ErrorBoundary: V2_ErrorBoundaryComponent = () => {
+export const ErrorBoundary: ErrorBoundaryComponent = () => {
   // TODO repair this
   return (
     <Layout>
@@ -43,8 +40,8 @@ function Layout({ children }: { children: React.ReactNode }) {
       <body className="min-h-screen">
         <Menus>{children}</Menus>
         <ScrollRestoration />
-        <Scripts />
         <LiveReload />
+        <Scripts />
       </body>
     </html>
   );
