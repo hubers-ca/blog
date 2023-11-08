@@ -7,13 +7,15 @@ export default config({
       owner: "hubers-ca",
       name: "blog-content",
     },
+    // kind: "local",
   },
   collections: {
     math: collection({
       label: "Math",
       slugField: "title",
       path: "math/*/",
-      format: { contentField: "content", data: "yaml" },
+      format: { data: "yaml" },
+      entryLayout: "content",
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
         content: fields.document({
